@@ -16,16 +16,19 @@ public class Player : MonoBehaviour
    [SerializeField] private float _jumpPower;
    [SerializeField] private float _gravity;
 
+   private Animator _anim;
+
    // Start is called before the first frame update
    void Start()
    {
       _controller = GetComponent<CharacterController>();
+      _anim = GetComponentInChildren<Animator>();
    }
 
    // Update is called once per frame
    void Update()
    {
-      _horizontalInput = Input.GetAxis("Horizontal");
+      _horizontalInput = Input.GetAxisRaw("Horizontal");
 
       Movement();
    }
@@ -36,6 +39,7 @@ public class Player : MonoBehaviour
       {
          //Debug.Log("Grounded");
          _moveDirection = new Vector3(_horizontalInput, 0f, 0f);
+         _anim.SetFloat("Speed", Mathf.Abs(_horizontalInput));
          _moveVelocity = _moveDirection * _moveSpeed;
 
          if (Input.GetKeyDown(KeyCode.Space))
