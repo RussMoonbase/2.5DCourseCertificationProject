@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+   [SerializeField] private GameObject _model;
+
    [Header("Movement")]
    [SerializeField] private float _moveSpeed;
    private Vector3 _moveDirection;
@@ -11,6 +13,9 @@ public class Player : MonoBehaviour
    private CharacterController _controller;
    private float _horizontalInput;
    private float _yVelocity;
+
+   [Header("Rotation")]
+   [SerializeField] private float _flipSpeed;
 
    [Header("Jumping")]
    [SerializeField] private float _jumpPower;
@@ -41,6 +46,15 @@ public class Player : MonoBehaviour
          if (_anim.GetBool("IsJumping") == true)
          {
             _anim.SetBool("IsJumping", false);
+         }
+
+         if (_horizontalInput < 0)
+         {
+            _model.transform.rotation = Quaternion.Slerp(_model.transform.rotation, Quaternion.Euler(0f, -90f, 0f), _flipSpeed * Time.deltaTime);
+         }
+         else
+         {
+            _model.transform.rotation = Quaternion.Slerp(_model.transform.rotation, Quaternion.Euler(0f, 90f, 0f), _flipSpeed * Time.deltaTime);
          }
 
          _moveDirection = new Vector3(_horizontalInput, 0f, 0f);
