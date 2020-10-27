@@ -50,11 +50,20 @@ public class Player : MonoBehaviour
 
          if (_horizontalInput < 0)
          {
-            _model.transform.rotation = Quaternion.Slerp(_model.transform.rotation, Quaternion.Euler(0f, -90f, 0f), _flipSpeed * Time.deltaTime);
+            if (_model.transform.eulerAngles.y != -90f)
+            {
+               Debug.Log("Rotating to -90");
+               _model.transform.rotation = Quaternion.Slerp(_model.transform.rotation, Quaternion.Euler(0f, -90f, 0f), _flipSpeed * Time.deltaTime);
+            }
+           
          }
-         else
+         else if (_horizontalInput > 0)
          {
-            _model.transform.rotation = Quaternion.Slerp(_model.transform.rotation, Quaternion.Euler(0f, 90f, 0f), _flipSpeed * Time.deltaTime);
+            if (_model.transform.eulerAngles.y != 90f)
+            {
+               Debug.Log("Rotating to 90");
+               _model.transform.rotation = Quaternion.Slerp(_model.transform.rotation, Quaternion.Euler(0f, 90f, 0f), _flipSpeed * Time.deltaTime);
+            }         
          }
 
          _moveDirection = new Vector3(_horizontalInput, 0f, 0f);
