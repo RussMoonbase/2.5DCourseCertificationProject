@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-   public static Player instance;
-
    [SerializeField] private GameObject _model;
 
    [Header("Movement")]
@@ -23,15 +21,7 @@ public class Player : MonoBehaviour
    [SerializeField] private float _jumpPower;
    [SerializeField] private float _gravity;
 
-   [Header("Ledge Climbing")]
-   private bool _isHanging = false;
-
    private Animator _anim;
-
-   private void Awake()
-   {
-      instance = this;
-   }
 
    // Start is called before the first frame update
    void Start()
@@ -45,13 +35,9 @@ public class Player : MonoBehaviour
    {
       _horizontalInput = Input.GetAxisRaw("Horizontal");
 
-      if (!_isHanging)
+      if (_controller.enabled)
       {
          Movement();
-      }
-      else
-      {
-         Hanging();
       }
       
    }
@@ -103,17 +89,10 @@ public class Player : MonoBehaviour
       _controller.Move(_moveVelocity * Time.deltaTime);
    }
 
-   public void SetIsHanging(bool hangBool)
-   {
-      _isHanging = hangBool;
-   }
 
-   private void Hanging()
+   public void LedgeGrab()
    {
-      if (_anim.GetBool("IsHanging") == false)
-      {
-         _anim.SetBool("IsHanging", true);
-      }
-      
+      _controller.enabled = false;
+      _anim.SetBool("IsHanging", true);
    }
 }

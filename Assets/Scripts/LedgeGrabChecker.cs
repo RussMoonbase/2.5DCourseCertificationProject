@@ -6,10 +6,14 @@ public class LedgeGrabChecker : MonoBehaviour
 {
    private void OnTriggerEnter(Collider other)
    {
-      if (other.tag == "Player")
+      if (other.tag == "LedgeGrabChecker")
       {
-         Debug.Log("Hit");
-         Player.instance.SetIsHanging(true);
+         Player player = other.GetComponentInParent<Player>();
+
+         if (player)
+         {
+            player.LedgeGrab();
+         }
       }
    }
 }
