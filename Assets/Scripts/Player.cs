@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
    [SerializeField] private float _jumpPower;
    [SerializeField] private float _gravity;
 
+   [Header("Ledge Grab")]
+   [SerializeField] private float _snapHandsSpeed;
+
    private Animator _anim;
 
    // Start is called before the first frame update
@@ -90,9 +93,21 @@ public class Player : MonoBehaviour
    }
 
 
-   public void LedgeGrab()
+   public void LedgeGrab(Vector3 handsTarget)
    {
       _controller.enabled = false;
       _anim.SetBool("IsHanging", true);
+
+      this.transform.position = handsTarget;
+
+      //if (this.transform.position != handsTarget)
+      //{
+      //   this.transform.position = Vector3.Lerp(this.transform.position, handsTarget, _snapHandsSpeed * Time.deltaTime);
+      //}
    }
+
+   //private IEnumerator SnapHands(Vector3 moveHandsToTarget)
+   //{
+
+   //}
 }

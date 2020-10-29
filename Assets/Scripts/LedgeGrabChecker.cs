@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LedgeGrabChecker : MonoBehaviour
 {
+   [SerializeField] private Vector3 _snapHandsPosition;
+
    private void OnTriggerEnter(Collider other)
    {
       if (other.tag == "LedgeGrabChecker")
@@ -12,7 +15,7 @@ public class LedgeGrabChecker : MonoBehaviour
 
          if (player)
          {
-            player.LedgeGrab();
+            player.LedgeGrab(_snapHandsPosition);
          }
       }
    }
