@@ -96,9 +96,10 @@ public class Player : MonoBehaviour
    public void LedgeGrab(Vector3 handsTarget)
    {
       _controller.enabled = false;
-      _anim.SetBool("IsHanging", true);
-
       this.transform.position = handsTarget;
+      _anim.SetBool("IsHanging", true);
+      _anim.SetFloat("Speed", 0f);
+      _anim.SetBool("IsJumping", false);
 
       //if (this.transform.position != handsTarget)
       //{

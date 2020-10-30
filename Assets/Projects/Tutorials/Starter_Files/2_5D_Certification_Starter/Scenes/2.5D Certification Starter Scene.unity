@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42aae7eb1e124454bacb7629279d41f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snapHandsPosition: {x: 24.4, y: 67.51, z: 99.04}
+  _snapHandsPosition: {x: 24.04, y: 67.51, z: 99.04}
 --- !u!1001 &2012091589
 PrefabInstance:
   m_ObjectHideFlags: 0
