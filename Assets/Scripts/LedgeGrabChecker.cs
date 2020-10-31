@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class LedgeGrabChecker : MonoBehaviour
 {
    [SerializeField] private Vector3 _snapHandsPosition;
+   [SerializeField] private Vector3 _snapBodyPosition;
 
    private void OnTriggerEnter(Collider other)
    {
@@ -15,7 +16,7 @@ public class LedgeGrabChecker : MonoBehaviour
 
          if (player)
          {
-            player.LedgeGrab(_snapHandsPosition);
+            player.LedgeGrab(_snapHandsPosition, _snapBodyPosition);
          }
       }
    }

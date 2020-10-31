@@ -22,7 +22,10 @@ public class Player : MonoBehaviour
    [SerializeField] private float _gravity;
 
    [Header("Ledge Grab")]
-   [SerializeField] private float _snapHandsSpeed;
+   //[SerializeField] private float _snapHandsSpeed;
+   private bool _isHanging;
+   private Vector3 _climbUpBodyPosition;
+
 
    private Animator _anim;
 
@@ -43,6 +46,14 @@ public class Player : MonoBehaviour
          Movement();
       }
       
+      if (_isHanging)
+      {
+         if (Input.GetKeyDown(KeyCode.E))
+         {
+            _anim.SetTrigger("ClimbUp");
+         }
+      }
+
    }
 
    private void Movement()
@@ -93,22 +104,26 @@ public class Player : MonoBehaviour
    }
 
 
-   public void LedgeGrab(Vector3 handsTarget)
+   public void LedgeGrab(Vector3 handsTarget, Vector3 bodyTarget)
    {
+      _isHanging = true;
       _controller.enabled = false;
-      this.transform.position = handsTarget;
       _anim.SetBool("IsHanging", true);
       _anim.SetFloat("Speed", 0f);
       _anim.SetBool("IsJumping", false);
-
-      //if (this.transform.position != handsTarget)
-      //{
-      //   this.transform.position = Vector3.Lerp(this.transform.position, handsTarget, _snapHandsSpeed * Time.deltaTime);
-      //}
+      this.transform.position = handsTarget;
+      _climbUpBodyPosition = bodyTarget;
    }
 
-   //private IEnumerator SnapHands(Vector3 moveHandsToTarget)
-   //{
+   public void ReturnToIdleAfterClimbUp()
+   {
+      if (_climbUpBodyPosition != Vector3.zero)
+      {
+         this.transform.position = _climbUpBodyPosition;
+      }
+      
+      _controller.enabled = true;
+      _anim.SetBool("IsHanging", false);
+   }
 
-   //}
 }
