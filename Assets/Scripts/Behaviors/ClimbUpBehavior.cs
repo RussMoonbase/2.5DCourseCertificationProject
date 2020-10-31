@@ -11,7 +11,7 @@ public class ClimbUpBehavior : StateMachineBehaviour
    {
       _player = animator.GetComponentInParent<Player>();
 
-      //animator.applyRootMotion = true;
+      animator.applyRootMotion = true;
 
 
    }
