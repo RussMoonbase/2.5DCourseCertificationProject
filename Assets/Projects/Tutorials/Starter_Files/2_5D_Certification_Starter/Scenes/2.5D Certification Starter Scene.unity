@@ -277,7 +277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &848756042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _snapHandsPosition: {x: 24.04, y: 68.33, z: 99.04}
-  _snapBodyPosition: {x: 24.4, y: 74.4, z: 99.04}
+  _snapBodyPosition: {x: 25.99, y: 74.74, z: 99.04}
 --- !u!1001 &2012091589
 PrefabInstance:
   m_ObjectHideFlags: 0

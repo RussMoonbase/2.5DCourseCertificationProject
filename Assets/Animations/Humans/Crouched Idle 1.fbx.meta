@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 5dcc7e46c9a0910448357644f139cc04
+guid: be660b54188f31944902302a955e7bd5
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Ledge Climb
+    second: Crouched Idle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,10 +35,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Ledge Climb
+      name: Crouched Idle
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
+      firstFrame: 114
       lastFrame: 115
       wrapMode: 0
       orientationOffsetY: 0
@@ -49,7 +49,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 0

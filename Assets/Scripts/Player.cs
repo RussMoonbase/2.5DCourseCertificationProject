@@ -122,8 +122,18 @@ public class Player : MonoBehaviour
          this.transform.position = _climbUpBodyPosition;
       }
       
-      _controller.enabled = true;
+      //_controller.enabled = true;
       _anim.SetBool("IsHanging", false);
    }
 
+   public void EnableController()
+   {
+      //_model.transform.localPosition = Vector3.zero;
+      _controller.enabled = true;
+   }
+
+   public bool IsControllerOn()
+   {
+      return _controller.enabled;
+   }
 }

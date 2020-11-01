@@ -11,7 +11,7 @@ public class ClimbUpBehavior : StateMachineBehaviour
    {
       _player = animator.GetComponentInParent<Player>();
 
-      animator.applyRootMotion = true;
+      //animator.applyRootMotion = true;
 
 
    }
@@ -26,8 +26,9 @@ public class ClimbUpBehavior : StateMachineBehaviour
    {
       if (_player)
       {
-         Debug.Log("Player is true");
+         //Debug.Log("Player is true");
          _player.ReturnToIdleAfterClimbUp();
+         //_player.EnableController();
       }
    }
 }
