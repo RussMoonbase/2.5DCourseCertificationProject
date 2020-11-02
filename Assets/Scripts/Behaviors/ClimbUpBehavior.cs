@@ -11,9 +11,6 @@ public class ClimbUpBehavior : StateMachineBehaviour
    {
       _player = animator.GetComponentInParent<Player>();
 
-      //animator.applyRootMotion = true;
-
-
    }
 
    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -26,9 +23,8 @@ public class ClimbUpBehavior : StateMachineBehaviour
    {
       if (_player)
       {
-         //Debug.Log("Player is true");
+         Debug.Log("Player is true");
          _player.ReturnToIdleAfterClimbUp();
-         //_player.EnableController();
       }
    }
 }

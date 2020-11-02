@@ -24,7 +24,7 @@ public class CrouchToStandBehaviour : StateMachineBehaviour
       if (_player)
       {
          //Debug.Log("Player is true");
-         //_player.EnableController();
+         _player.EnableMovement();
       }
    }
 

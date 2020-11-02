@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
    private CharacterController _controller;
    private float _horizontalInput;
    private float _yVelocity;
+   //[SerializeField] private bool _ableToMove = true;
 
    [Header("Rotation")]
    [SerializeField] private float _flipSpeed;
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
    }
 
    // Update is called once per frame
-   void Update()
+   void FixedUpdate()
    {
       _horizontalInput = Input.GetAxisRaw("Horizontal");
 
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour
       {
          Movement();
       }
-      
+
       if (_isHanging)
       {
          if (Input.GetKeyDown(KeyCode.E))
@@ -108,6 +109,7 @@ public class Player : MonoBehaviour
    {
       _isHanging = true;
       _controller.enabled = false;
+      //_ableToMove = false;
       _anim.SetBool("IsHanging", true);
       _anim.SetFloat("Speed", 0f);
       _anim.SetBool("IsJumping", false);
@@ -126,14 +128,10 @@ public class Player : MonoBehaviour
       _anim.SetBool("IsHanging", false);
    }
 
-   public void EnableController()
+   public void EnableMovement()
    {
-      //_model.transform.localPosition = Vector3.zero;
       _controller.enabled = true;
+      //_ableToMove = true;
    }
 
-   public bool IsControllerOn()
-   {
-      return _controller.enabled;
-   }
 }
