@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
    private bool _isHanging;
    private Vector3 _climbUpBodyPosition;
 
-
+   private CameraChanger _camerachanger;
    private Animator _anim;
 
    // Start is called before the first frame update
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
    {
       _controller = GetComponent<CharacterController>();
       _anim = GetComponentInChildren<Animator>();
+      _camerachanger = GetComponent<CameraChanger>();
    }
 
    // Update is called once per frame
@@ -52,6 +53,10 @@ public class Player : MonoBehaviour
          if (Input.GetKeyDown(KeyCode.E))
          {
             _anim.SetTrigger("ClimbUp");
+            if (_camerachanger)
+            {
+               _camerachanger.IncreaseLedgeCamPriority();
+            }
          }
       }
 
@@ -131,6 +136,10 @@ public class Player : MonoBehaviour
    public void EnableMovement()
    {
       _controller.enabled = true;
+      if (_camerachanger)
+      {
+         _camerachanger.DecreaseLedgeCamPriority();
+      }
       //_ableToMove = true;
    }
 
