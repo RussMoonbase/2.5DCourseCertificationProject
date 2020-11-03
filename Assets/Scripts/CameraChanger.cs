@@ -19,4 +19,10 @@ public class CameraChanger : MonoBehaviour
    {
       _ledgeCamera.Priority = _playerCamera.Priority - 1;
    }
+
+   public void SetLedgeCameraTarget(Transform target)
+   {
+      _ledgeCamera.Follow = target;
+      _ledgeCamera.LookAt = target;
+   }
 }

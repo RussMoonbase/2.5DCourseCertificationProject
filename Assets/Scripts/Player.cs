@@ -110,8 +110,13 @@ public class Player : MonoBehaviour
    }
 
 
-   public void LedgeGrab(Vector3 handsTarget, Vector3 bodyTarget)
+   public void LedgeGrab(Vector3 handsTarget, Vector3 bodyTarget, Transform ledgeCamTransform)
    {
+      if (_camerachanger)
+      {
+         _camerachanger.SetLedgeCameraTarget(ledgeCamTransform);
+      }
+
       _isHanging = true;
       _controller.enabled = false;
       //_ableToMove = false;

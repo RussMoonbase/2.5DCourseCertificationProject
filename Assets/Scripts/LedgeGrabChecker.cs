@@ -7,6 +7,7 @@ public class LedgeGrabChecker : MonoBehaviour
 {
    [SerializeField] private Vector3 _snapHandsPosition;
    [SerializeField] private Vector3 _snapBodyPosition;
+   [SerializeField] private Transform _ledgeCameraTransform;
 
    private void OnTriggerEnter(Collider other)
    {
@@ -16,7 +17,7 @@ public class LedgeGrabChecker : MonoBehaviour
 
          if (player)
          {
-            player.LedgeGrab(_snapHandsPosition, _snapBodyPosition);
+            player.LedgeGrab(_snapHandsPosition, _snapBodyPosition, _ledgeCameraTransform);
          }
       }
    }
