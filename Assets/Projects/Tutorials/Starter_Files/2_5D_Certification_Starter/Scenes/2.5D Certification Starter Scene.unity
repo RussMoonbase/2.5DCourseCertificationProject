@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 4
   m_FollowOffset: {x: -3.71, y: 4.88, z: -24.93}
-  m_XDamping: 1
+  m_XDamping: 0
   m_YDamping: 1
   m_ZDamping: 1
   m_AngularDampingMode: 0
@@ -17029,10 +17029,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7826534919754219829, guid: 59e55d6499b442e458566bbb8e2fc6bb, type: 3}
-      propertyPath: _ledgeCameraTransform
-      value: 
-      objectReference: {fileID: 1237727450}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59e55d6499b442e458566bbb8e2fc6bb, type: 3}
 --- !u!1 &7828402625049444958

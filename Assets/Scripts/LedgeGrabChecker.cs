@@ -8,6 +8,8 @@ public class LedgeGrabChecker : MonoBehaviour
    [SerializeField] private Vector3 _snapHandsPosition;
    [SerializeField] private Vector3 _snapBodyPosition;
    [SerializeField] private Transform _ledgeCameraTransform;
+   [SerializeField] private Transform _snapHandsTransform;
+   [SerializeField] private Transform _snapBodyTransform;
 
    private void OnTriggerEnter(Collider other)
    {
@@ -17,7 +19,8 @@ public class LedgeGrabChecker : MonoBehaviour
 
          if (player)
          {
-            player.LedgeGrab(_snapHandsPosition, _snapBodyPosition, _ledgeCameraTransform);
+            //player.LedgeGrab(_snapHandsPosition, _snapBodyPosition, _ledgeCameraTransform);
+            player.LedgeGrab(_snapHandsTransform.position, _snapBodyTransform.position, _ledgeCameraTransform);
          }
       }
    }
