@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
    private CharacterController _controller;
    private float _horizontalInput;
    private float _yVelocity;
+   private float _xVelocity;
+   //[SerializeField] private float _rollPower;
    //[SerializeField] private bool _ableToMove = true;
 
    [Header("Rotation")]
@@ -99,6 +101,12 @@ public class Player : MonoBehaviour
             _anim.SetBool("IsJumping", true);
             _yVelocity = _jumpPower;
          }
+
+         if (Input.GetKeyDown(KeyCode.LeftShift))
+         {
+            _anim.SetBool("IsRolling", true);
+            //x Velocity called in roll behavior
+         }
       }
       else
       {
@@ -106,6 +114,12 @@ public class Player : MonoBehaviour
       }
 
       _moveVelocity.y = _yVelocity;
+
+      if (_anim.GetBool("IsRolling"))
+      {
+         _moveVelocity.x = _xVelocity;
+      }
+
       _controller.Move(_moveVelocity * Time.deltaTime);
    }
 
@@ -146,6 +160,11 @@ public class Player : MonoBehaviour
          _camerachanger.DecreaseLedgeCamPriority();
       }
       //_ableToMove = true;
+   }
+
+   public void SetXVelocity(float speed)
+   {
+      _xVelocity = speed;
    }
 
 }
