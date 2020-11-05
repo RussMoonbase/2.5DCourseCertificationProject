@@ -128,6 +128,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100010, guid: 7b2eb117a27072f46b11bac53a374847, type: 3}
   m_PrefabInstance: {fileID: 2012091589}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &19255453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19255451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b727cf6b9f04f4989752b1aea3d95e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &76559469
 GameObject:
   m_ObjectHideFlags: 3
@@ -502,6 +514,8 @@ MonoBehaviour:
   _flipSpeed: 10
   _jumpPower: 10
   _gravity: 30
+  _isRolling: 0
+  _maxRollDistance: 0
 --- !u!143 &848756044
 CharacterController:
   m_ObjectHideFlags: 0
@@ -838,6 +852,8 @@ MonoBehaviour:
   _flipSpeed: 10
   _jumpPower: 10
   _gravity: 30
+  _isRolling: 0
+  _maxRollDistance: 5
 --- !u!114 &1377586215
 MonoBehaviour:
   m_ObjectHideFlags: 0

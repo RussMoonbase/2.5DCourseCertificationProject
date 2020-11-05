@@ -13,7 +13,7 @@ public class RollBehavior : StateMachineBehaviour
 
       if (_player)
       {
-         _player.SetXVelocity(7f);
+         //_player.SetXVelocity(7f);
       }
    }
 

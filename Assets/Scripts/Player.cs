@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
    private CharacterController _controller;
    private float _horizontalInput;
    private float _yVelocity;
-   private float _xVelocity;
+   //private float _xVelocity;
    //[SerializeField] private float _rollPower;
    //[SerializeField] private bool _ableToMove = true;
 
@@ -29,8 +29,14 @@ public class Player : MonoBehaviour
    private bool _isHanging;
    private Vector3 _climbUpBodyPosition;
 
+   [Header("Rolling")]
+   [SerializeField] private bool _isRolling;
+   [SerializeField] private float _maxRollDistance;
+   private Vector3 _rollEndPosition;
+
    private CameraChanger _camerachanger;
    private Animator _anim;
+   private PlayerAnimation _playerAnimation;
 
    // Start is called before the first frame update
    void Start()
@@ -38,12 +44,18 @@ public class Player : MonoBehaviour
       _controller = GetComponent<CharacterController>();
       _anim = GetComponentInChildren<Animator>();
       _camerachanger = GetComponent<CameraChanger>();
+      _playerAnimation = GetComponentInChildren<PlayerAnimation>();
    }
 
    // Update is called once per frame
    void FixedUpdate()
    {
       _horizontalInput = Input.GetAxisRaw("Horizontal");
+
+      if (_isRolling)
+      {
+         this.transform.position = Vector3.Lerp(this.transform.position, _rollEndPosition, _playerAnimation.GetRollSpeed() * Time.deltaTime);
+      }
 
       if (_controller.enabled)
       {
@@ -61,7 +73,6 @@ public class Player : MonoBehaviour
             }
          }
       }
-
    }
 
    private void Movement()
@@ -104,8 +115,11 @@ public class Player : MonoBehaviour
 
          if (Input.GetKeyDown(KeyCode.LeftShift))
          {
-            _anim.SetBool("IsRolling", true);
+            _rollEndPosition = new Vector3(this.transform.position.x + _maxRollDistance, this.transform.position.y, this.transform.position.z);
+            Debug.Log("Roll Position = " + _rollEndPosition);
+            //_anim.SetBool("IsRolling", true);
             //x Velocity called in roll behavior
+            Rolling();
          }
       }
       else
@@ -115,10 +129,10 @@ public class Player : MonoBehaviour
 
       _moveVelocity.y = _yVelocity;
 
-      if (_anim.GetBool("IsRolling"))
-      {
-         _moveVelocity.x = _xVelocity;
-      }
+      //if (_anim.GetBool("IsRolling"))
+      //{
+      //   _moveVelocity.x = _xVelocity;
+      //}
 
       _controller.Move(_moveVelocity * Time.deltaTime);
    }
@@ -162,9 +176,16 @@ public class Player : MonoBehaviour
       //_ableToMove = true;
    }
 
-   public void SetXVelocity(float speed)
+   //public void SetXVelocity(float speed)
+   //{
+   //   _xVelocity = speed;
+   //}
+
+   private void Rolling()
    {
-      _xVelocity = speed;
+      _controller.enabled = false;
+      _isRolling = true;
+      _anim.SetBool("IsRolling", _isRolling);
    }
 
 }
