@@ -10,11 +10,6 @@ public class RollBehavior : StateMachineBehaviour
    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
    {
       _player = animator.GetComponentInParent<Player>();
-
-      if (_player)
-      {
-         //_player.SetXVelocity(7f);
-      }
    }
 
    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,6 +22,11 @@ public class RollBehavior : StateMachineBehaviour
    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
    {
       animator.SetBool("IsRolling", false);
+
+      if (_player)
+      {
+         _player.EnableMovement();
+      }
    }
 
    // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -853,7 +853,7 @@ MonoBehaviour:
   _jumpPower: 10
   _gravity: 30
   _isRolling: 0
-  _maxRollDistance: 5
+  _maxRollDistance: 10
 --- !u!114 &1377586215
 MonoBehaviour:
   m_ObjectHideFlags: 0

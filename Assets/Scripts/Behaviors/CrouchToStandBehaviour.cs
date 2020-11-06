@@ -25,6 +25,7 @@ public class CrouchToStandBehaviour : StateMachineBehaviour
       {
          //Debug.Log("Player is true");
          _player.EnableMovement();
+         _player.DecreaseLedgeCamPriority();
       }
    }
 

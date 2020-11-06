@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
    [SerializeField] private bool _isRolling;
    [SerializeField] private float _maxRollDistance;
    private Vector3 _rollEndPosition;
+   private float _rollSpeed;
 
    private CameraChanger _camerachanger;
    private Animator _anim;
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour
 
       if (_isRolling)
       {
-         this.transform.position = Vector3.Lerp(this.transform.position, _rollEndPosition, _playerAnimation.GetRollSpeed() * Time.deltaTime);
+         this.transform.position = Vector3.Lerp(this.transform.position, _rollEndPosition, _rollSpeed * Time.deltaTime);
       }
 
       if (_controller.enabled)
@@ -116,7 +117,7 @@ public class Player : MonoBehaviour
          if (Input.GetKeyDown(KeyCode.LeftShift))
          {
             _rollEndPosition = new Vector3(this.transform.position.x + _maxRollDistance, this.transform.position.y, this.transform.position.z);
-            Debug.Log("Roll Position = " + _rollEndPosition);
+            //Debug.Log("Roll Position = " + _rollEndPosition);
             //_anim.SetBool("IsRolling", true);
             //x Velocity called in roll behavior
             Rolling();
@@ -169,11 +170,16 @@ public class Player : MonoBehaviour
    public void EnableMovement()
    {
       _controller.enabled = true;
+
+      //_ableToMove = true;
+   }
+
+   public void DecreaseLedgeCamPriority()
+   {
       if (_camerachanger)
       {
          _camerachanger.DecreaseLedgeCamPriority();
       }
-      //_ableToMove = true;
    }
 
    //public void SetXVelocity(float speed)
@@ -186,6 +192,12 @@ public class Player : MonoBehaviour
       _controller.enabled = false;
       _isRolling = true;
       _anim.SetBool("IsRolling", _isRolling);
+   }
+
+   public void SetRollSpeed(int newSpeed)
+   {
+      _rollSpeed = newSpeed;
+      Debug.Log("Roll Speed = " + _rollSpeed);
    }
 
 }
