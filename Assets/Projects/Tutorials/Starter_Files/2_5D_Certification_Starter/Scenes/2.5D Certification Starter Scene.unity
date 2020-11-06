@@ -849,7 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _model: {fileID: 19255451}
   _moveSpeed: 10
-  _flipSpeed: 10
+  _flipSpeed: 30
   _jumpPower: 10
   _gravity: 30
   _isRolling: 0

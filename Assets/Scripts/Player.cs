@@ -116,10 +116,16 @@ public class Player : MonoBehaviour
 
          if (Input.GetKeyDown(KeyCode.LeftShift))
          {
-            _rollEndPosition = new Vector3(this.transform.position.x + _maxRollDistance, this.transform.position.y, this.transform.position.z);
-            //Debug.Log("Roll Position = " + _rollEndPosition);
-            //_anim.SetBool("IsRolling", true);
-            //x Velocity called in roll behavior
+            Debug.Log("Model Rotation = " + _model.transform.eulerAngles);
+            if (_model.transform.eulerAngles.y >= 0 && _model.transform.eulerAngles.y < 230)
+            {
+               //_rollEndPosition = new Vector3(this.transform.position.x + _maxRollDistance, this.transform.position.y, this.transform.position.z);
+               SetRollEndPosition(_maxRollDistance);
+            }
+            else if (_model.transform.eulerAngles.y > 230)
+            {
+               SetRollEndPosition(-_maxRollDistance);
+            }
             Rolling();
          }
       }
@@ -129,12 +135,6 @@ public class Player : MonoBehaviour
       }
 
       _moveVelocity.y = _yVelocity;
-
-      //if (_anim.GetBool("IsRolling"))
-      //{
-      //   _moveVelocity.x = _xVelocity;
-      //}
-
       _controller.Move(_moveVelocity * Time.deltaTime);
    }
 
@@ -194,10 +194,15 @@ public class Player : MonoBehaviour
       _anim.SetBool("IsRolling", _isRolling);
    }
 
-   public void SetRollSpeed(int newSpeed)
+   public void SetRollSpeed(float newSpeed)
    {
       _rollSpeed = newSpeed;
       Debug.Log("Roll Speed = " + _rollSpeed);
+   }
+
+   private void SetRollEndPosition(float distanceOffset)
+   {
+      _rollEndPosition = new Vector3(this.transform.position.x + distanceOffset, this.transform.position.y, this.transform.position.z);
    }
 
 }

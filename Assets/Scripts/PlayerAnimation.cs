@@ -19,7 +19,8 @@ public class PlayerAnimation : MonoBehaviour
         
     }
 
-   public void Roll(int speed)
+   // speed comes from Stand to Roll animation float
+   public void Roll(float speed)
    {
       _thePlayer.SetRollSpeed(speed);
    }
