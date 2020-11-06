@@ -16997,6 +16997,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1299898985}
     m_Modifications:
+    - target: {fileID: 631888952, guid: 59e55d6499b442e458566bbb8e2fc6bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 631888953, guid: 59e55d6499b442e458566bbb8e2fc6bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237727448, guid: 59e55d6499b442e458566bbb8e2fc6bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5643283044361839105, guid: 59e55d6499b442e458566bbb8e2fc6bb, type: 3}
       propertyPath: m_Name
       value: Platform_Ledge
