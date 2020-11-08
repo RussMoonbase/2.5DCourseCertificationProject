@@ -104,10 +104,11 @@ public class Player : MonoBehaviour
             }         
          }
 
+
          _moveDirection = new Vector3(_horizontalInput, 0f, 0f);
          _anim.SetFloat("Speed", Mathf.Abs(_horizontalInput));
          _moveVelocity = _moveDirection * _moveSpeed;
-
+  
          if (Input.GetKeyDown(KeyCode.Space))
          {
             _anim.SetBool("IsJumping", true);
@@ -116,10 +117,8 @@ public class Player : MonoBehaviour
 
          if (Input.GetKeyDown(KeyCode.LeftShift))
          {
-            Debug.Log("Model Rotation = " + _model.transform.eulerAngles);
             if (_model.transform.eulerAngles.y >= 0 && _model.transform.eulerAngles.y < 230)
             {
-               //_rollEndPosition = new Vector3(this.transform.position.x + _maxRollDistance, this.transform.position.y, this.transform.position.z);
                SetRollEndPosition(_maxRollDistance);
             }
             else if (_model.transform.eulerAngles.y > 230)

@@ -9,7 +9,7 @@ public class MovingPlatform : MonoBehaviour
    [SerializeField] private float _moveSpeed;
    [SerializeField] private bool _moveToTargetAOnStart;
    private Transform _targetPosition;
-
+   [SerializeField] private CinemachineBrain _cmBrain;
    // Start is called before the first frame update
    void Start()
    {
