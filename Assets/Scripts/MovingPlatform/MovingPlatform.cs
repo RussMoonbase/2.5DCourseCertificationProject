@@ -58,7 +58,7 @@ public class MovingPlatform : MonoBehaviour
       if (other.tag == "Player")
       {
          other.GetComponent<CameraChanger>().DecreasePlatformCamPriority();
-         //_camTarget.SetCanFollowPlayerBool(false);
+         _camTarget.SetCanFollowPlayerBool(false);
          other.transform.parent = null;
       }
    }
