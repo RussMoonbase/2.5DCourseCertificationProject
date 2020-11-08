@@ -776,8 +776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0bf1a26a09190439f4c8b4386e1ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
-  testPlatform: {fileID: 2142899724}
   _model: {fileID: 19255451}
   _moveSpeed: 10
   _flipSpeed: 30
@@ -1169,9 +1167,10 @@ GameObject:
   - component: {fileID: 1968392769}
   - component: {fileID: 1968392772}
   - component: {fileID: 1968392771}
+  - component: {fileID: 1968392773}
   - component: {fileID: 1968392770}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: MovingPlatformTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,7 +1199,7 @@ BoxCollider:
   m_GameObject: {fileID: 1968392768}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1253,6 +1252,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968392768}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1968392773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968392768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c6e85ac3facfb4889f49ab56754351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2012091589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1468,11 +1479,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &2142899724 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5506954157034199435, guid: eaa0593ed6d0f4c4387166c499225429, type: 3}
-  m_PrefabInstance: {fileID: 7939152764471098205}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6410241561223501
 GameObject:
   m_ObjectHideFlags: 0
@@ -17288,6 +17294,10 @@ PrefabInstance:
       propertyPath: _cmBrain
       value: 
       objectReference: {fileID: 2120877331}
+    - target: {fileID: 215536445, guid: eaa0593ed6d0f4c4387166c499225429, type: 3}
+      propertyPath: _camTarget
+      value: 
+      objectReference: {fileID: 1968392773}
     - target: {fileID: 2197077201306647744, guid: eaa0593ed6d0f4c4387166c499225429, type: 3}
       propertyPath: m_IsTrigger
       value: 1

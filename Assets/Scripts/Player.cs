@@ -188,7 +188,7 @@ public class Player : MonoBehaviour
 
    private void Rolling()
    {
-      _controller.enabled = false;
+      //_controller.enabled = false;
       _isRolling = true;
       _anim.SetBool("IsRolling", _isRolling);
    }

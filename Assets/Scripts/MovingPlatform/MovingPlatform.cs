@@ -10,6 +10,8 @@ public class MovingPlatform : MonoBehaviour
    [SerializeField] private bool _moveToTargetAOnStart;
    private Transform _targetPosition;
    [SerializeField] private CinemachineBrain _cmBrain;
+   [SerializeField] private MovingPlatformCameraTarget _camTarget;
+
    // Start is called before the first frame update
    void Start()
    {
@@ -46,6 +48,8 @@ public class MovingPlatform : MonoBehaviour
       {
          other.transform.parent = this.gameObject.transform;
          other.GetComponent<CameraChanger>().IncreasePlatformCamPriority();
+         _camTarget.SetCanFollowPlayerBool(true);
+         _camTarget.SetFollowTarget(other.transform);
       }
    }
 
@@ -54,6 +58,7 @@ public class MovingPlatform : MonoBehaviour
       if (other.tag == "Player")
       {
          other.GetComponent<CameraChanger>().DecreasePlatformCamPriority();
+         //_camTarget.SetCanFollowPlayerBool(false);
          other.transform.parent = null;
       }
    }
