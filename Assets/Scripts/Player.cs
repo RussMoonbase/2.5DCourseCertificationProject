@@ -6,12 +6,13 @@ public class Player : MonoBehaviour
 {
    [SerializeField] private GameObject _model;
 
-   [Header("Movement")]
-   [SerializeField] private float _moveSpeed;
+   [Header("Ground Movement")]
+   [SerializeField] private float _groundMoveSpeed;
    private Vector3 _moveDirection;
    private Vector3 _moveVelocity;
    private CharacterController _controller;
    private float _horizontalInput;
+   private float _verticalInput;
    private float _yVelocity;
    //private float _xVelocity;
    //[SerializeField] private float _rollPower;
@@ -30,10 +31,16 @@ public class Player : MonoBehaviour
    private Vector3 _climbUpBodyPosition;
 
    [Header("Rolling")]
-   [SerializeField] private bool _isRolling;
+   private bool _isRolling;
    [SerializeField] private float _maxRollDistance;
    private Vector3 _rollEndPosition;
    private float _rollSpeed;
+
+   [Header("Ladder Movement")]
+   [SerializeField] private bool _canClimbLadder;
+   [SerializeField] private bool _climbingLadder;
+   private Vector3 _ladderSnapHandsPosition;
+   [SerializeField] private float _ladderMoveSpeed;
 
    private CameraChanger _camerachanger;
    private Animator _anim;
@@ -52,15 +59,16 @@ public class Player : MonoBehaviour
    void Update()
    {
       _horizontalInput = Input.GetAxisRaw("Horizontal");
+      _verticalInput = Input.GetAxisRaw("Vertical");
 
       if (_isRolling)
       {
          this.transform.position = Vector3.Lerp(this.transform.position, _rollEndPosition, _rollSpeed * Time.deltaTime);
       }
 
-      if (_controller.enabled)
+      if (_controller.enabled && !_climbingLadder)
       {
-         Movement();
+         GroundMovement();
       }
 
       if (_isHanging)
@@ -74,9 +82,22 @@ public class Player : MonoBehaviour
             }
          }
       }
+
+      if (_canClimbLadder)
+      {
+         if (Input.GetKeyDown(KeyCode.E))
+         {
+            LadderGrab();
+         }
+      }
+
+      if (_climbingLadder)
+      {
+         LadderMovement();
+      }
    }
 
-   private void Movement()
+   private void GroundMovement()
    {
       if (_controller.isGrounded)
       {
@@ -104,10 +125,9 @@ public class Player : MonoBehaviour
             }         
          }
 
-
          _moveDirection = new Vector3(_horizontalInput, 0f, 0f);
          _anim.SetFloat("Speed", Mathf.Abs(_horizontalInput));
-         _moveVelocity = _moveDirection * _moveSpeed;
+         _moveVelocity = _moveDirection * _groundMoveSpeed;
   
          if (Input.GetKeyDown(KeyCode.Space))
          {
@@ -130,12 +150,39 @@ public class Player : MonoBehaviour
       }
       else
       {
-         _yVelocity -= _gravity * Time.deltaTime;
+         _yVelocity -= _gravity * Time.deltaTime;     
       }
 
       _moveVelocity.y = _yVelocity;
       _controller.Move(_moveVelocity * Time.deltaTime);
    }
+
+   private void LadderMovement()
+   {
+      _moveDirection = new Vector3(0f, _verticalInput, 0f);
+      _anim.SetFloat("Speed", Mathf.Abs(_verticalInput));
+      _moveVelocity = _moveDirection * _ladderMoveSpeed;
+      _controller.Move(_moveVelocity * Time.deltaTime);
+   }
+
+   public void BeginLadderClimb(Vector3 handsTarget)
+   {
+      _canClimbLadder = true;
+      _ladderSnapHandsPosition = handsTarget;
+   }
+
+   private void LadderGrab()
+   {
+      _climbingLadder = true;
+      _anim.SetBool("IsClimbingLadder", true);
+
+      if (_ladderSnapHandsPosition != Vector3.zero)
+      {
+         this.transform.position = _ladderSnapHandsPosition;
+      }
+      
+   }
+
 
 
    public void LedgeGrab(Vector3 handsTarget, Vector3 bodyTarget, Transform ledgeCamTransform)
@@ -166,7 +213,7 @@ public class Player : MonoBehaviour
       _anim.SetBool("IsHanging", false);
    }
 
-   public void EnableMovement()
+   public void EnableController()
    {
       _controller.enabled = true;
 

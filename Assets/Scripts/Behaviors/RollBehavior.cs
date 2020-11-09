@@ -25,7 +25,7 @@ public class RollBehavior : StateMachineBehaviour
 
       if (_player)
       {
-         _player.EnableMovement();
+         _player.EnableController();
       }
    }
 

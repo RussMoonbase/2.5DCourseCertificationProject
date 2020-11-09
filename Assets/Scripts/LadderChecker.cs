@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class LadderChecker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   [SerializeField] private Transform _snapHandsTarget;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+   private void OnTriggerStay(Collider other)
+   {
+      if (other.tag == "Player")
+      {
+         Player thePlayer = other.GetComponent<Player>();
+
+         if (thePlayer)
+         {
+            thePlayer.BeginLadderClimb(_snapHandsTarget.position);
+         }
+      }
+   }
 }
