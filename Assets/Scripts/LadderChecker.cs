@@ -15,7 +15,7 @@ public class LadderChecker : MonoBehaviour
 
          if (thePlayer)
          {
-            thePlayer.BeginLadderClimb(_snapHandsTarget.position);
+            thePlayer.LadderClimbReady(_snapHandsTarget.position);
          }
       }
    }

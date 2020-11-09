@@ -157,15 +157,7 @@ public class Player : MonoBehaviour
       _controller.Move(_moveVelocity * Time.deltaTime);
    }
 
-   private void LadderMovement()
-   {
-      _moveDirection = new Vector3(0f, _verticalInput, 0f);
-      _anim.SetFloat("Speed", Mathf.Abs(_verticalInput));
-      _moveVelocity = _moveDirection * _ladderMoveSpeed;
-      _controller.Move(_moveVelocity * Time.deltaTime);
-   }
-
-   public void BeginLadderClimb(Vector3 handsTarget)
+   public void LadderClimbReady(Vector3 handsTarget)
    {
       _canClimbLadder = true;
       _ladderSnapHandsPosition = handsTarget;
@@ -175,15 +167,22 @@ public class Player : MonoBehaviour
    {
       _climbingLadder = true;
       _anim.SetBool("IsClimbingLadder", true);
-
-      if (_ladderSnapHandsPosition != Vector3.zero)
-      {
-         this.transform.position = _ladderSnapHandsPosition;
-      }
-      
+      _controller.enabled = false;
+      this.transform.position = _ladderSnapHandsPosition;    
    }
 
+   private void LadderMovement()
+   {
 
+      if (!_controller.enabled)
+      {
+         _controller.enabled = true;
+      }
+      _moveDirection = new Vector3(0f, _verticalInput, 0f);
+      _anim.SetFloat("Speed", Mathf.Abs(_verticalInput));
+      _moveVelocity = _moveDirection * _ladderMoveSpeed;
+      _controller.Move(_moveVelocity * Time.deltaTime);
+   }
 
    public void LedgeGrab(Vector3 handsTarget, Vector3 bodyTarget, Transform ledgeCamTransform)
    {
