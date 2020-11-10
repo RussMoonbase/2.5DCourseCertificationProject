@@ -179,7 +179,6 @@ public class Player : MonoBehaviour
          _controller.enabled = true;
       }
       _moveDirection = new Vector3(0f, _verticalInput, 0f);
-      Debug.Log("Vertical Input = " + _verticalInput);
       _anim.SetFloat("LadderClimbSpeed", _verticalInput);
       _moveVelocity = _moveDirection * _ladderMoveSpeed;
       _controller.Move(_moveVelocity * Time.deltaTime);
@@ -249,6 +248,22 @@ public class Player : MonoBehaviour
    private void SetRollEndPosition(float distanceOffset)
    {
       _rollEndPosition = new Vector3(this.transform.position.x + distanceOffset, this.transform.position.y, this.transform.position.z);
+   }
+
+   public bool GetClimbingLadder()
+   {
+      return _climbingLadder;
+   }
+
+   public void GetOffLadder()
+   {
+      _anim.SetBool("IsClimbingLadder", false);
+      _climbingLadder = false;
+   }
+
+   public void ReachedTopOfLadder()
+   {
+      _anim.SetBool("ReachedTopOfLadder", true);
    }
 
 }

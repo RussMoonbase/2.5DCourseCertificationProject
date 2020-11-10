@@ -15,7 +15,15 @@ public class LadderChecker : MonoBehaviour
 
          if (thePlayer)
          {
-            thePlayer.LadderClimbReady(_snapHandsTarget.position);
+            if (!thePlayer.GetClimbingLadder())
+            {
+               thePlayer.LadderClimbReady(_snapHandsTarget.position);
+            }
+            else
+            {
+               thePlayer.GetOffLadder();
+            }
+            
          }
       }
    }
