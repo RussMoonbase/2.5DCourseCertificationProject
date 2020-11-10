@@ -37,8 +37,8 @@ public class Player : MonoBehaviour
    private float _rollSpeed;
 
    [Header("Ladder Movement")]
-   [SerializeField] private bool _canClimbLadder;
-   [SerializeField] private bool _climbingLadder;
+   private bool _canClimbLadder;
+   private bool _climbingLadder;
    private Vector3 _ladderSnapHandsPosition;
    [SerializeField] private float _ladderMoveSpeed;
 
@@ -179,7 +179,8 @@ public class Player : MonoBehaviour
          _controller.enabled = true;
       }
       _moveDirection = new Vector3(0f, _verticalInput, 0f);
-      _anim.SetFloat("Speed", Mathf.Abs(_verticalInput));
+      Debug.Log("Vertical Input = " + _verticalInput);
+      _anim.SetFloat("LadderClimbSpeed", _verticalInput);
       _moveVelocity = _moveDirection * _ladderMoveSpeed;
       _controller.Move(_moveVelocity * Time.deltaTime);
    }
