@@ -263,7 +263,9 @@ public class Player : MonoBehaviour
 
    public void ReachedTopOfLadder()
    {
+      _climbingLadder = false;
       _anim.SetBool("ReachedTopOfLadder", true);
+      _controller.enabled = false;
    }
 
 }
