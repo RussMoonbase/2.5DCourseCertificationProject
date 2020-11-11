@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LadderCheckerTop : MonoBehaviour
 {
+   [SerializeField] private Transform _bodySnapPosition;
+   [SerializeField] private Transform _ledgeCameraTransform;
+
    private void OnTriggerEnter(Collider other)
    {
       if (other.tag == "Player")
@@ -12,7 +15,7 @@ public class LadderCheckerTop : MonoBehaviour
 
          if (thePlayer)
          {
-            thePlayer.ReachedTopOfLadder();
+            thePlayer.ReachedTopOfLadder(_bodySnapPosition.position, _ledgeCameraTransform);
          }
       }
    }

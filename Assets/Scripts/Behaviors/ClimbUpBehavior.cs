@@ -5,6 +5,8 @@ using UnityEngine;
 public class ClimbUpBehavior : StateMachineBehaviour
 {
    private Player _player;
+   [SerializeField] private string _animBoolName;
+   [SerializeField] private bool _isAnimBoolTrue;
 
    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -23,8 +25,7 @@ public class ClimbUpBehavior : StateMachineBehaviour
    {
       if (_player)
       {
-         Debug.Log("Player is true");
-         _player.ReturnToIdleAfterClimbUp();
+         _player.ReturnToIdleAfterClimbUp(_animBoolName, _isAnimBoolTrue);
       }
    }
 }

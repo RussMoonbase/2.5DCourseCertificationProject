@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 
 public class LedgeGrabChecker : MonoBehaviour
 {
-   [SerializeField] private Vector3 _snapHandsPosition;
-   [SerializeField] private Vector3 _snapBodyPosition;
+   //[SerializeField] private Vector3 _snapHandsPosition;
+   //[SerializeField] private Vector3 _snapBodyPosition;
    [SerializeField] private Transform _ledgeCameraTransform;
    [SerializeField] private Transform _snapHandsTransform;
    [SerializeField] private Transform _snapBodyTransform;

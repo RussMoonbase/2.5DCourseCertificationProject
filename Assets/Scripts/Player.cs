@@ -201,15 +201,21 @@ public class Player : MonoBehaviour
       _climbUpBodyPosition = bodyTarget;
    }
 
-   public void ReturnToIdleAfterClimbUp()
+   public void ReturnToIdleAfterClimbUp(string animBoolParam, bool animBoolean)
    {
       if (_climbUpBodyPosition != Vector3.zero)
       {
          this.transform.position = _climbUpBodyPosition;
       }
-      
+
+      if (_isHanging)
+      {
+         _isHanging = false;
+      }
+
       //_controller.enabled = true;
-      _anim.SetBool("IsHanging", false);
+      //_anim.SetBool("IsHanging", false);
+      _anim.SetBool(animBoolParam, animBoolean);
    }
 
    public void EnableController()
@@ -261,11 +267,20 @@ public class Player : MonoBehaviour
       _climbingLadder = false;
    }
 
-   public void ReachedTopOfLadder()
+   public void ReachedTopOfLadder(Vector3 bodyTarget, Transform ledgeCamTransform)
    {
+      if (_camerachanger)
+      {
+         _camerachanger.SetLedgeCameraTarget(ledgeCamTransform);
+      }
+
+      _climbUpBodyPosition = bodyTarget;
+
       _climbingLadder = false;
       _anim.SetBool("ReachedTopOfLadder", true);
       _controller.enabled = false;
    }
+
+
 
 }
