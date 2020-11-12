@@ -15,8 +15,10 @@ public class LadderCheckerTop : MonoBehaviour
 
          if (thePlayer)
          {
-            thePlayer.ReachedTopOfLadder(_bodySnapPosition.position, _ledgeCameraTransform);
+            thePlayer.ReachedTopOfLadder(_bodySnapPosition.position, _ledgeCameraTransform, this.gameObject);
          }
       }
    }
+
+
 }

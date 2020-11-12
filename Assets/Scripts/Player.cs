@@ -267,7 +267,7 @@ public class Player : MonoBehaviour
       _climbingLadder = false;
    }
 
-   public void ReachedTopOfLadder(Vector3 bodyTarget, Transform ledgeCamTransform)
+   public void ReachedTopOfLadder(Vector3 bodyTarget, Transform ledgeCamTransform, GameObject ladderCheckerTop)
    {
       if (_camerachanger)
       {
@@ -280,6 +280,8 @@ public class Player : MonoBehaviour
       _climbingLadder = false;
       _anim.SetBool("ReachedTopOfLadder", true);
       _controller.enabled = false;
+
+      ladderCheckerTop.SetActive(false);
    }
 
 
