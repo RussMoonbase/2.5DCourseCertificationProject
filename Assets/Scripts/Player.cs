@@ -272,6 +272,7 @@ public class Player : MonoBehaviour
       if (_camerachanger)
       {
          _camerachanger.SetLedgeCameraTarget(ledgeCamTransform);
+         _camerachanger.IncreaseLedgeCamPriority();
       }
 
       _climbUpBodyPosition = bodyTarget;
