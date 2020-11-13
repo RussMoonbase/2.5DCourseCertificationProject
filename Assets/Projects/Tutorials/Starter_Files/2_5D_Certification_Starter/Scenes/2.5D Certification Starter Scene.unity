@@ -452,8 +452,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73859334}
-  m_LocalRotation: {x: -0.002094827, y: 0.06503911, z: 0.00013653508, w: 0.9978805}
-  m_LocalPosition: {x: 142.99004, y: 80.079994, z: 75.25998}
+  m_LocalRotation: {x: -0.0021161032, y: 0.014287113, z: 0.000030236157, w: 0.9998957}
+  m_LocalPosition: {x: 153, y: 80.079994, z: 75.259964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1724455183}
@@ -2348,7 +2348,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 37
+  m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3398,6 +3398,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803328264}
   m_Mesh: {fileID: -4817566495549845568, guid: 79de0a17bb77648f0aa041aa6d1de049, type: 3}
+--- !u!1 &815198833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5506954157034199435, guid: eaa0593ed6d0f4c4387166c499225429, type: 3}
+  m_PrefabInstance: {fileID: 7939152764471098205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &815198838
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815198833}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &817866057
 GameObject:
   m_ObjectHideFlags: 0
@@ -6392,7 +6413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377586213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.95, y: 77.47, z: 99.04}
+  m_LocalPosition: {x: 115.2, y: 77.47, z: 99.04}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 786186622}
@@ -6888,7 +6909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595944740}
   m_LocalRotation: {x: -0.0023740658, y: 0.07379886, z: 0.00017568287, w: 0.99727035}
-  m_LocalPosition: {x: 33.24, y: 82.35, z: 74.11}
+  m_LocalPosition: {x: 111.49, y: 82.35, z: 74.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1708077631}
@@ -7731,8 +7752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: -3.71, y: 4.88, z: -28.34}
-  m_XDamping: 0
+  m_FollowOffset: {x: -0.81003666, y: 4.88, z: -28.34}
+  m_XDamping: 9.6
   m_YDamping: 1
   m_ZDamping: 1
   m_AngularDampingMode: 0
@@ -8745,7 +8766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968392768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9.9}
+  m_LocalPosition: {x: -0, y: 0, z: -2.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215536444}
@@ -9307,7 +9328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120877326}
   m_LocalRotation: {x: -0.0023740658, y: 0.07379886, z: 0.00017568287, w: 0.99727035}
-  m_LocalPosition: {x: 33.24, y: 82.35, z: 74.11}
+  m_LocalPosition: {x: 111.49, y: 82.35, z: 74.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9363,8 +9384,8 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 2
-    m_Time: 1
+    m_Style: 1
+    m_Time: 2
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -30312,6 +30333,10 @@ PrefabInstance:
       propertyPath: _ledgeCameraTransform
       value: 
       objectReference: {fileID: 265198646}
+    - target: {fileID: 6597431004719992800, guid: b76591746207a614382a5ea82ac8960e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6597431005398463986, guid: b76591746207a614382a5ea82ac8960e, type: 3}
       propertyPath: _topOfLadderChecker
       value: 
@@ -30363,6 +30388,10 @@ PrefabInstance:
     - target: {fileID: 6597431005398463991, guid: b76591746207a614382a5ea82ac8960e, type: 3}
       propertyPath: m_Name
       value: LadderHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550961803891483021, guid: b76591746207a614382a5ea82ac8960e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1975638195931885319, guid: b76591746207a614382a5ea82ac8960e, type: 3}
