@@ -48,8 +48,8 @@ public class MovingPlatform : MonoBehaviour
       {
          other.transform.parent = this.gameObject.transform;
          //other.GetComponent<CameraChanger>().IncreasePlatformCamPriority();
-         _camTarget.SetCanFollowPlayerBool(true);
-         _camTarget.SetFollowTarget(other.transform);
+         //_camTarget.SetCanFollowPlayerBool(true);
+         //_camTarget.SetFollowTarget(other.transform);
       }
    }
 
@@ -58,8 +58,8 @@ public class MovingPlatform : MonoBehaviour
       if (other.tag == "Player")
       {
          //other.GetComponent<CameraChanger>().DecreasePlatformCamPriority();
-         _camTarget.SetCanFollowPlayerBool(false);
-         other.transform.parent = null;
+         //_camTarget.SetCanFollowPlayerBool(false);
+         //other.transform.parent = null;
       }
    }
 
