@@ -24,8 +24,15 @@ public class ElevatorPanel : MonoBehaviour
 
             if (_isTopFloor)
             {
+               _theElevator.SetElevatorToGoingDown();
+               
+            }
+            else
+            {
                _theElevator.SetElevatorToGoingUp();
             }
+
+            _theElevator.ElevatorCanMove();
          }
          
       }
