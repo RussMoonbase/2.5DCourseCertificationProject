@@ -15,7 +15,7 @@ public class Elevator : MonoBehaviour
    // Start is called before the first frame update
    void Start()
    {
-      _target = _downTarget;
+      //_target = _downTarget;
    }
 
    // Update is called once per frame
@@ -30,6 +30,7 @@ public class Elevator : MonoBehaviour
          else
          {
             _canMove = false;
+            StartCoroutine(WaitAtPositionRoutine());
          }
       }
    }
@@ -50,5 +51,15 @@ public class Elevator : MonoBehaviour
    {
       yield return new WaitForSeconds(_waitTime);
       _canMove = true;
+
+      if (_target == _downTarget)
+      {
+         _target = _upTarget;
+      }
+
+      if (_target == _upTarget)
+      {
+         _target = _downTarget;
+      }
    }
 }
