@@ -47,6 +47,7 @@ public class MovingPlatform : MonoBehaviour
       if (other.tag == "Player")
       {
          other.transform.parent = this.gameObject.transform;
+         other.gameObject.GetComponent<CameraChanger>().DecreasePlayerCamDamping();
          //other.GetComponent<CameraChanger>().IncreasePlatformCamPriority();
          //_camTarget.SetCanFollowPlayerBool(true);
          //_camTarget.SetFollowTarget(other.transform);
@@ -59,6 +60,7 @@ public class MovingPlatform : MonoBehaviour
       {
          //other.GetComponent<CameraChanger>().DecreasePlatformCamPriority();
          //_camTarget.SetCanFollowPlayerBool(false);
+         other.gameObject.GetComponent<CameraChanger>().IncreasePlayerCamDamping();
          other.transform.parent = null;
       }
    }

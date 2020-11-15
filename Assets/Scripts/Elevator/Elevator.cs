@@ -53,9 +53,8 @@ public class Elevator : MonoBehaviour
    {
       if (other.tag == "Player")
       {
-         Debug.Log("Player entered");
          other.transform.parent = this.gameObject.transform;
-         other.gameObject.GetComponent<CameraChanger>().IncreasePlatformCamPriority();
+         other.gameObject.GetComponent<CameraChanger>().DecreasePlayerCamDamping();
       }
    }
 
@@ -64,7 +63,8 @@ public class Elevator : MonoBehaviour
       if (other.tag == "Player")
       {
          other.transform.parent = null;
-         other.gameObject.GetComponent<CameraChanger>().DecreasePlatformCamPriority();
+         other.gameObject.GetComponent<CameraChanger>().IncreasePlayerCamDamping();
+         //other.gameObject.GetComponent<CameraChanger>().DecreasePlatformCamPriority();
       }
    }
 

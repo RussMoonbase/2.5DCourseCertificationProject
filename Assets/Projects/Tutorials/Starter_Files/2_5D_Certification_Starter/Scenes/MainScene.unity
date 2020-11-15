@@ -6387,6 +6387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCamera: {fileID: 1595944741}
+  _pCam: {fileID: 1595944741}
   _ledgeCamera: {fileID: 1151844067}
   _platformCamera: {fileID: 73859335}
   _ledgeCamIncrease: 1
@@ -6399,7 +6400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377586213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.2, y: 76.2, z: 99.04}
+  m_LocalPosition: {x: 123.1, y: 76.2, z: 99.04}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 786186622}
@@ -6895,7 +6896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595944740}
   m_LocalRotation: {x: -0.0023740658, y: 0.07379886, z: 0.00017568287, w: 0.99727035}
-  m_LocalPosition: {x: 37.49, y: 81.079994, z: 74.11}
+  m_LocalPosition: {x: 119.39, y: 81.079994, z: 74.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1708077631}
@@ -9277,7 +9278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120877326}
   m_LocalRotation: {x: -0.0023740658, y: 0.07379886, z: 0.00017568287, w: 0.99727035}
-  m_LocalPosition: {x: 37.49, y: 81.079994, z: 74.11}
+  m_LocalPosition: {x: 119.39, y: 81.079994, z: 74.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -21658,18 +21659,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElevatorSwitch
       objectReference: {fileID: 0}
-    - target: {fileID: 1726248864844046366, guid: 50d5d5efb8b8a704fae4f51b00eddc87, type: 3}
-      propertyPath: m_Size.z
-      value: 19.791862
-      objectReference: {fileID: 0}
-    - target: {fileID: 1726248864844046366, guid: 50d5d5efb8b8a704fae4f51b00eddc87, type: 3}
-      propertyPath: m_Center.y
-      value: 2.6649215
-      objectReference: {fileID: 0}
-    - target: {fileID: 1726248864844046366, guid: 50d5d5efb8b8a704fae4f51b00eddc87, type: 3}
-      propertyPath: m_Center.z
-      value: -7.7038183
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d5d5efb8b8a704fae4f51b00eddc87, type: 3}
 --- !u!23 &1741221901713036689
@@ -31467,11 +31456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2197077201306647744, guid: eaa0593ed6d0f4c4387166c499225429, type: 3}
       propertyPath: m_Size.y
-      value: 16.878914
+      value: 1.1322556
       objectReference: {fileID: 0}
     - target: {fileID: 2197077201306647744, guid: eaa0593ed6d0f4c4387166c499225429, type: 3}
       propertyPath: m_Center.y
-      value: 7.939457
+      value: 0.06612778
       objectReference: {fileID: 0}
     - target: {fileID: 5507132591948818262, guid: eaa0593ed6d0f4c4387166c499225429, type: 3}
       propertyPath: m_LocalPosition.x
